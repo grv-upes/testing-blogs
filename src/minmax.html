@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8"></meta>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+  <title>Welcome file</title>
+  <link href="https://stackedit.io/style.css" rel="stylesheet"></link>
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html">
+<h3 id="problem-statement--">Problem Statement :-</h3>
+<h2 id="finding-the-minimum-and-maximum-element-in-a-given-array">Finding the minimum and maximum element in a given array</h2>
+<p><em>Example 1:</em>  We will be given an array and we need to output two space separated integers. First integer should be the minimum number in the array and the second interger should be the maximum number in the array.</p>
+<div class="separator" style="clear: both;"><a href="https://1.bp.blogspot.com/-Ionue98lLUw/YFOT71AHHtI/AAAAAAAAAD4/LzPX1PkKv38mcpWL5Y5wIsNzIwlGlCDdgCLcBGAsYHQ/s930/unsorted%2Barray%2B-%2BImgur.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" width="400" data-original-height="428" data-original-width="930" src="https://1.bp.blogspot.com/-Ionue98lLUw/YFOT71AHHtI/AAAAAAAAAD4/LzPX1PkKv38mcpWL5Y5wIsNzIwlGlCDdgCLcBGAsYHQ/s400/unsorted%2Barray%2B-%2BImgur.png"/></a></div>
+<pre><code>Input: {15, 1, -9, 76, 28, 1}
+Output: -9 76
+Explanation: -9 is the smallest integer and 76 is the largest
+integer in the given array.
+</code></pre>
+<p><em>Solution:-</em><br />
+<em>The above problem can be solved in multiple ways, but I will be discussing two basic approaches to solve the problem.</em></p>
+<p><strong>Using Sorting:-</strong></p>
+<p>In this method, we need to sort the array first. Let’s say we have sorted the array in ascending order. This means that the first element of the array will now be the minimum element and the last element in the array would be maximum element.</p>
+<p>The solution is easy to implement and really easy to understand as well, but the only issue that we might face during the interview will be its execution time. Techniques like merge sort, and quick sort take  <strong>O(NlogN)</strong>  time , where N is the number of elements in the array. We don’t need to use any extra space, so the space complexity will be constant <strong>O(1)</strong> .</p>
+ <div class="separator" style="clear: both;"><a href="https://1.bp.blogspot.com/-cspGZB3baJs/YFOUNgxDSRI/AAAAAAAAAEA/n4sA7gctz0QNS6OxQiMxeCM0eGQSygJnwCLcBGAsYHQ/s932/sorted%2Barray%2B-%2BImgur.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" width="400" data-original-height="406" data-original-width="932" src="https://1.bp.blogspot.com/-cspGZB3baJs/YFOUNgxDSRI/AAAAAAAAAEA/n4sA7gctz0QNS6OxQiMxeCM0eGQSygJnwCLcBGAsYHQ/s400/sorted%2Barray%2B-%2BImgur.png"/></a></div>
+<p>Here is the solution to find the maximum and minimum element using sorting</p>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+	int N;
+	cin&gt;&gt;N; //taking the size of array
+	vector&lt;int&gt; V(N); //declaring an array of size N
+	//taking array as input
+	for(int i=0; i&lt;N; ++i){
+		cin&gt;&gt;V[i];
+	}	
+	//sorting the array
+	//for now I will be using sort() method of C++ STL
+	sort(V.begin(), V.end());
+	
+	//displaying the output
+	cout&lt;&lt;V[0]&lt;&lt;" "&lt;&lt;V[V.size()-1]&lt;&lt;"\n";
+	return 0;
+}
+</code></pre>
+<p><b>Optimal Approach</b></p>
+<p>This method will help us solve the problem in <strong>O(N)</strong> time and using constant space, i.e space complexity will be <strong>O(1)</strong>.</p>
+<p>To do so, I will first take two variables and store the first value of the given array in both of them. Now we will traverse the array from second element till the last. In each iteration we will compare and store the minimum element in first variable and store the maximum element in the second variable.</p>
+<p>Here is the solution to do so,</p>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main(){
+	int N;
+	cin&gt;&gt;N; //taking the size of array
+	vector&lt;int&gt; V(N); //declaring an array of size N
+	//taking array as input
+	for(int i=0; i&lt;N; ++i){
+		cin&gt;&gt;V[i];
+	}	
+	
+	int minElement = V[0];
+	int maxElement = V[0];
+	
+	//traversing the array
+	for(int i=1; i&lt;N; ++i){
+		//comparison to store the maximum element
+		if(V[i] &gt; maxElement) {
+			maxElement = V[i];
+		}
+		//comparison to store the minimum element
+		if(V[i] &lt; minElement){
+			minElement = V[i];
+		}
+	}
+	// we now have the values of minimum and maximum element stored in the two variables
+	cout&lt;&lt;minElement&lt;&lt;" "&lt;&lt;maxElement&lt;&lt;"\n";
+	return 0;
+}
+</code></pre>
+<p>So these were the two solutions to find minimum and maximum element in an non-sorted array.</p>
+<p>You can follow me on Github to find solutions to many more DSA problems.</p>
+<p>Thank you,<br />
+<strong>Gaurav Goyal</strong></p>
+<p><a href="https://github.com/cptn3m0grv">Github</a><br />
+<a href="https://www.linkedin.com/in/gaurav-goyal-4a850a173/">LinkedIn</a></p>
+</div>
+</body>
+
+</html>
