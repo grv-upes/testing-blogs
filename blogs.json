@@ -1,13 +1,13 @@
 {
-	"enteries" : [
-		{
-			"url": "https://raw.githubusercontent.com/grv-upes/testing-blogs/main/src/link012.html"
-		},
-		{
-			"url": "https://raw.githubusercontent.com/grv-upes/testing-blogs/main/src/minmax.html"
-		},
-		{	
-			"url": "https://raw.githubusercontent.com/grv-upes/testing-blogs/main/src/revArray.html"
-		}
+	"enteries": [
+	  {
+		"url": "https://raw.githubusercontent.com/grv-upes/testing-blogs/main/src/link012.html"
+	  },
+	  {
+		"url": "https://raw.githubusercontent.com/grv-upes/testing-blogs/main/src/minmax.html"
+	  },
+	  {
+		"url": "https://raw.githubusercontent.com/grv-upes/testing-blogs/main/src/revArray.html"
+	  }
 	]
-}
+  }
