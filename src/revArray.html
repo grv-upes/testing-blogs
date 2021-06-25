@@ -1,0 +1,133 @@
+
+<html>
+
+    <head>
+      <meta charset="utf-8"></meta>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+      <title>Temp</title>
+      <!--<script data-ad-client="pub-6308239697670529" async src="https://pagead2.googlesyndication.com/
+    pagead/js/adsbygoogle.js"></script>-->
+      <link href="https://stackedit.io/style.css" rel="stylesheet"></link>
+    </head>
+    
+    <body class="stackedit">
+    <h2 id="reverse-the-array">Reverse the Array</h2>
+    <p><em>Example 1:</em> The problem is quite straight forward, we have to reverse the array given to us.</p>
+    <pre><code>Input: N = 8
+    value[] = {1,2,3,4,5,2,1,7,8}
+    Output[] = {8,7,1,2,5,4,3,2,1}  
+    Explanation:  The elements of the array are reversed.
+    </code></pre>
+    <p><em>Solution:-</em></p>
+    <p>There could be multiple ways to solve this problem, but I will be discussing two approaches. First of all I will be discussing the very basic approach (Brute Force) and then I will be discussing the most optimal approach in terms of space and time to solve the same problem.</p>
+    <p><strong>Brute Force Solution:-</strong></p>
+    <p>In this approach, we will be using an extra array. We will be traversing the given array from end to start and keep storing the values in the new array. Now, the new array will be having the elements in reverse order of the original array.</p>
+    <p>This solution will be using <strong>O(N)</strong> extra space to store the elements in the new array, and we will have to traverse the entire array resulting in O(N) time complexity.</p>
+    <p>Here is the code to reverse the array using brute force method.</p>
+    <pre><code>#include&lt;bits/stdc++.h&gt;
+    
+    using namespace std;
+    
+    vector&lt;int&gt; reverseArray(vector&lt;int&gt; V, int size){
+    
+        vector&lt;int&gt; ans(size);
+    
+        int i = 0;
+    
+        // pointer at 0 so that we can store the elements in ans array
+    
+        for(int j=size-1; j&gt;=0; --j){
+    
+            ans[i] = V[j];
+    
+            ++i;
+    
+        }
+    
+        return ans;
+    
+    }
+    
+      
+    
+    int main(){
+    
+        int size; 
+    
+        cin&gt;&gt;size; //taking size of the array
+    
+        vector&lt;int&gt; V(size); //intializing a vector of same size
+    
+        //taking array as input from user
+    
+        for(int i=0; i&lt;size; ++i){
+    
+            cin&gt;&gt;V[i];
+    
+        }
+    
+        vector&lt;int&gt; ans = reverseArray(V,size);
+    
+        for(auto element: ans){
+    
+            cout&lt;&lt;element&lt;&lt;" ";
+    
+        }
+    
+        return 0;
+    
+    }
+    </code></pre>
+    <p><em>Optimal Solution (Two Pointer Method):-</em></p>
+    <p>In this approach, we will be using two pointers, the first pointer will point to the first element in the array and the second pointer will point to the last element. We will then be swapping the elements at these two positions and increment the first pointer by one and decrement the second pointer by one.</p>
+    <p>We will have to do the same until first pointer crosses the second pointer, as soon the position of first pointer becomes greater than or equal to the second pointer, we break out of the loop.</p>
+    <p>At the end, we will notice that the elements in our array are reversed.</p>
+    <p>This solution doesn’t use any extra space, in fact the array is reversed in place resulting in <strong>O(1)</strong> space complexity. Also we don’t have to run the loop N times, we will have to run it N/2 times, but still the time complexity will be <strong>O(N/2)</strong>, though it will be considered <em>linear</em>.</p>
+    <p>Here is the code to reverse the array using two pointer approach.</p>
+    <pre><code>#include&lt;bits/stdc++.h&gt;
+    using namespace std;
+    
+    void reverseArray(vector&lt;int&gt;&amp; V, int size){
+        int p = 0; // first pointer to first element
+        int q = size-1; //second pointer to last element
+        
+        while(p&lt;q){
+            int temp = V[p];
+            V[p] = V[q];
+            V[q] = temp;
+            
+            ++p; --q;
+        }
+    }
+    
+    int main(){
+        int size; 
+        cin&gt;&gt;size; //taking size of the array
+        
+        vector&lt;int&gt; V(size); //intializing a vector of same size
+        
+        //taking array as input from user
+        for(int i=0; i&lt;size; ++i){
+            cin&gt;&gt;V[i];
+        }
+        
+        // calling reverse function to reverse the array in place
+        reverseArray(V,size);
+        
+        for(auto element: V){
+            cout&lt;&lt;element&lt;&lt;" ";
+        }
+        
+        return 0;
+    }
+    </code></pre>
+    <p>You can also follow me on GitHub, and fork my DSA-Practice Repository to get solutions to more solutions.</p>
+    <p>Thank you,<br />
+    <strong>Gaurav Goyal</strong></p>
+    <p><a href="https://github.com/cptn3m0grv">Github</a><br />
+    <a href="https://www.linkedin.com/in/gaurav-goyal-4a850a173/">LinkedIn</a></p>
+    </div>
+    </body>
+    
+    </html>
+    
